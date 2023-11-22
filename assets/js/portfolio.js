@@ -89,28 +89,29 @@ let typed = new Typed(".job", {
 // ===================================== dark and light mode =================================//
 const modeButton = document.getElementById('mode_button');
 const themePreferenceKey = "themePreference";
+const darkModeClass = 'dark';
 
-const setThemePreferenceKey = (theme) =>{
+const setThemePreferenceKey = (theme) => {
     localStorage.setItem(themePreferenceKey, theme);
-}
+};
 
-const getThemePreferenceKey = () =>{
-    localStorage.getItem(themePreferenceKey);
-}
+const getThemePreferenceKey = () => {
+    return localStorage.getItem(themePreferenceKey);
+};
 
-const toggleMode = ()=>{
+const toggleMode = () => {
     modeButton.querySelector(".mode").classList.toggle("fa-sun");
     modeButton.querySelector(".mode").classList.toggle("fa-moon");
-    document.body.classList.toggle("dark");
+    document.body.classList.toggle(darkModeClass);
 
     const currentMode = document.body.classList.contains(darkModeClass) ? 'dark' : 'light';
-    localStorage.setItem(modePreferenceKey, currentMode);
-})
+    setThemePreferenceKey(currentMode);
+};
 
-modeButton.addEventListener("click",toggleMode);
+modeButton.addEventListener("click", toggleMode);
 
 document.addEventListener('DOMContentLoaded', () => {
-    const savedMode = localStorage.getItem(modePreferenceKey);
+    const savedMode = getThemePreferenceKey();
     if (savedMode === 'dark') {
         toggleMode();
     }
