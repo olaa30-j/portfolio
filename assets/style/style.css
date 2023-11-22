@@ -577,7 +577,7 @@ aside .nav_item i {
 .about .personal_data .row .info_item p {
     padding: 0.75rem 0;
     font-weight: 600;
-    color: var(--text-dark-d);
+    color: var(--text-dark-l);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -615,7 +615,7 @@ aside .nav_item i {
 .personal_skills .skills_item h5 {
     line-height: 2.5rem;
     font-weight: 600;
-    color: var(--text-dark-d);
+    color: var(--text-dark-l);
     text-transform: capitalize;
     margin-bottom: 0.65rem;
 }
