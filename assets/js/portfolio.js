@@ -87,13 +87,34 @@ let typed = new Typed(".job", {
     loop: true
 })  
 // ===================================== dark and light mode =================================//
-const modeButton = document.getElementById('mode_button')
-modeButton.addEventListener("click",()=>{
+const modeButton = document.getElementById('mode_button');
+const themePreferenceKey = "themePreference";
+
+const setThemePreferenceKey = (theme) =>{
+    localStorage.setItem(themePreferenceKey, theme);
+}
+
+const getThemePreferenceKey = () =>{
+    localStorage.getItem(themePreferenceKey);
+}
+
+const toggleMode = ()=>{
     modeButton.querySelector(".mode").classList.toggle("fa-sun");
     modeButton.querySelector(".mode").classList.toggle("fa-moon");
     document.body.classList.toggle("dark");
+
+    const currentMode = document.body.classList.contains(darkModeClass) ? 'dark' : 'light';
+    localStorage.setItem(modePreferenceKey, currentMode);
 })
 
+modeButton.addEventListener("click",toggleMode);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const savedMode = localStorage.getItem(modePreferenceKey);
+    if (savedMode === 'dark') {
+        toggleMode();
+    }
+});
 // ===================================== theme color =========================================//
 const themeBtn = document.querySelector(".theme");
 const themes = document.querySelector(".themes");
