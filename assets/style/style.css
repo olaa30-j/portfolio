@@ -653,6 +653,7 @@ aside .nav_item i {
 .personal_experance {
     flex: 0 0 50%;
     max-width: 50%;
+    color: var(--text-dark-l);
 }
 .personal_education span,
 .personal_experance span{
@@ -662,7 +663,7 @@ aside .nav_item i {
 .personal_education h4,
 .personal_experance h4 {
     font-weight: 700;
-    color: var(--text-dark-d);
+    color: var(--text-dark-l);
     margin-bottom: 2rem;
     padding: 1rem;
     text-transform: uppercase;
